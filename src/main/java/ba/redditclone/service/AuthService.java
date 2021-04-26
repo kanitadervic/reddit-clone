@@ -1,8 +1,10 @@
 package ba.redditclone.service;
 
 import ba.redditclone.http.request.RegisterRequest;
+import ba.redditclone.model.NotificationEmail;
 import ba.redditclone.model.User;
 import ba.redditclone.model.VerificationToken;
+import ba.redditclone.repository.MailService;
 import ba.redditclone.repository.UserRepository;
 import ba.redditclone.repository.VerificationTokenRepository;
 import lombok.AllArgsConstructor;
@@ -20,6 +22,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
+    private final MailService mailService;
 
     @Transactional
     public void signup(RegisterRequest registerRequest) {
@@ -32,7 +35,12 @@ public class AuthService {
 
         userRepository.save(user);
 
-        generateVerificationToken(user);
+        String token = generateVerificationToken(user);
+        mailService.sendMail(new NotificationEmail("Please activate Your Account",
+                user.getEmail(),
+                "Thank you for signing up to Spring Reddit, " +
+                        "please click on the below url to activate your account : " +
+                        "http://localhost:8080/api/auth/accountVerification/" + token));
     }
 
     private String generateVerificationToken(User user) {
