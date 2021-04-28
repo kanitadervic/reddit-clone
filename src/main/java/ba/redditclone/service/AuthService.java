@@ -1,32 +1,41 @@
 package ba.redditclone.service;
 
 import ba.redditclone.exception.SpringRedditException;
+import ba.redditclone.http.request.LoginRequest;
 import ba.redditclone.http.request.RegisterRequest;
+import ba.redditclone.http.response.AuthenticationResponse;
 import ba.redditclone.model.NotificationEmail;
 import ba.redditclone.model.User;
 import ba.redditclone.model.VerificationToken;
 import ba.redditclone.repository.MailService;
 import ba.redditclone.repository.UserRepository;
 import ba.redditclone.repository.VerificationTokenRepository;
+import ba.redditclone.security.JwtProvider;
 import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class AuthService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
     private final MailService mailService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtProvider jwtProvider;
 
-    @Transactional
     public void signup(RegisterRequest registerRequest) {
         User user= new User();
         user.setUsername(registerRequest.getUsername());
@@ -63,7 +72,6 @@ public class AuthService {
         fetchUserAndEnable(verificationToken.get());
     }
 
-    @Transactional
     void fetchUserAndEnable(VerificationToken verificationToken) {
         String username = verificationToken.getUser().getUsername();
 
@@ -73,5 +81,17 @@ public class AuthService {
         userRepository.save(user);
 
 
+    }
+
+    public AuthenticationResponse login(LoginRequest loginRequest) {
+        Authentication authenticate = authenticationManager.
+                authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+
+        // checks if user is logged in
+        SecurityContextHolder.getContext().setAuthentication(authenticate);
+
+        String verificationToken = jwtProvider.generateToken(authenticate);
+
+        return new AuthenticationResponse(verificationToken, loginRequest.getUsername());
     }
 }
