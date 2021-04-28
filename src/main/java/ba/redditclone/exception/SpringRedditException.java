@@ -6,4 +6,8 @@ public class SpringRedditException extends RuntimeException{
     public  SpringRedditException(String s, MailException e) {
         super(s, e);
     }
+
+    public SpringRedditException(String s) {
+        super(s);
+    }
 }
