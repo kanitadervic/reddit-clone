@@ -1,7 +1,6 @@
 package ba.redditclone.security;
 
 import ba.redditclone.exception.SpringRedditException;
-import ba.redditclone.model.User;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.security.*;
 import java.security.cert.CertificateException;
 
@@ -21,7 +21,8 @@ public class JwtProvider {
     public void init() {
         try {
             keyStore = KeyStore.getInstance("JKS");
-            InputStream resourceAsStream = getClass().getResourceAsStream("/springblog.jks");
+            InputStream resourceAsStream = JwtProvider.class.getClassLoader().getResourceAsStream("springblog.jks");
+            System.out.println(resourceAsStream);
             keyStore.load(resourceAsStream, "secret".toCharArray());
         } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e) {
             throw new SpringRedditException("Exception occurred while loading keystore", e);
@@ -30,7 +31,7 @@ public class JwtProvider {
 
 
     public String generateToken(Authentication authentication) {
-        User principal = (User)authentication.getPrincipal();
+        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())
