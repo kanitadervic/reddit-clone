@@ -92,6 +92,8 @@ public class AuthService {
 
         String verificationToken = jwtProvider.generateToken(authenticate);
 
+        System.out.println(verificationToken);
+
         return new AuthenticationResponse(verificationToken, loginRequest.getUsername());
     }
 }
