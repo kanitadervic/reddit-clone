@@ -28,7 +28,7 @@ public class SubredditService {
     }
 
     private Subreddit mapSubredditToRequest(SubredditRequest subredditRequest) {
-        return Subreddit.builder().name(subredditRequest.getSubredditName())
+        return Subreddit.builder().name(subredditRequest.getName())
                 .description(subredditRequest.getDescription())
                 .build();
     }
@@ -40,7 +40,7 @@ public class SubredditService {
     }
 
     private SubredditRequest mapSubredditToRequest(Subreddit subreddit) {
-        return SubredditRequest.builder().subredditName(subreddit.getName())
+        return SubredditRequest.builder().name(subreddit.getName())
                 .id(subreddit.getId())
                 .numberOfPosts(subreddit.getPosts().size())
                 .build();
