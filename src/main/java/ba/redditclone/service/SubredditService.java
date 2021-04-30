@@ -1,6 +1,7 @@
 package ba.redditclone.service;
 
 import ba.redditclone.http.request.SubredditRequest;
+import ba.redditclone.mapper.SubredditMapper;
 import ba.redditclone.model.Subreddit;
 import ba.redditclone.repository.SubredditRepository;
 import lombok.AllArgsConstructor;
@@ -17,32 +18,20 @@ import java.util.stream.Collectors;
 public class SubredditService {
 
     private final SubredditRepository subredditRepository;
+    private final SubredditMapper subredditMapper;
 
     @Transactional
     public SubredditRequest save(SubredditRequest subredditRequest) {
-        Subreddit save = subredditRepository.save(mapSubredditToRequest(subredditRequest));
+        Subreddit save = subredditRepository.save(subredditMapper.mapRequestToSubreddit(subredditRequest));
         subredditRequest.setId(save.getId());
 
         return subredditRequest;
 
     }
 
-    private Subreddit mapSubredditToRequest(SubredditRequest subredditRequest) {
-        return Subreddit.builder().name(subredditRequest.getName())
-                .description(subredditRequest.getDescription())
-                .build();
-    }
-
     @Transactional(readOnly = true)
     public List<SubredditRequest> getAll() {
-        return subredditRepository.findAll().stream().map(this::mapSubredditToRequest)
+        return subredditRepository.findAll().stream().map(subredditMapper::mapSubredditToRequest)
                 .collect(Collectors.toList());
-    }
-
-    private SubredditRequest mapSubredditToRequest(Subreddit subreddit) {
-        return SubredditRequest.builder().name(subreddit.getName())
-                .id(subreddit.getId())
-                .numberOfPosts(subreddit.getPosts().size())
-                .build();
     }
 }
