@@ -1,5 +1,6 @@
 package ba.redditclone.service;
 
+import ba.redditclone.exception.SpringRedditException;
 import ba.redditclone.http.request.SubredditRequest;
 import ba.redditclone.mapper.SubredditMapper;
 import ba.redditclone.model.Subreddit;
@@ -33,5 +34,12 @@ public class SubredditService {
     public List<SubredditRequest> getAll() {
         return subredditRepository.findAll().stream().map(subredditMapper::mapSubredditToRequest)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public SubredditRequest getSubreddit(Long id) {
+        Subreddit subreddit = subredditRepository.findById(id).orElseThrow(() -> new SpringRedditException("No subreddit found with id: " + id));
+
+        return subredditMapper.mapSubredditToRequest(subreddit);
     }
 }
