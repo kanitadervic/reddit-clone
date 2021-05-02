@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/comment")
 @AllArgsConstructor
-public class CommentsController {
+public class CommentController {
 
     private CommentsService commentsService;
 
@@ -21,7 +21,7 @@ public class CommentsController {
     public ResponseEntity<Comment> createComment(@RequestBody CommentRequest commentRequest) {
         Comment comment = commentsService.createComment(commentRequest);
 
-        return new ResponseEntity<>(comment, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/by-post/{postId}")
