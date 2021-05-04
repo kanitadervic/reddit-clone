@@ -1,0 +1,30 @@
+header {
+  width: 100%;
+  border: #F8FAFB solid;
+  background-color: #F8FAFB;
+  border-radius: 1px;
+  //height: 60px;
+}
+
+.header-text {
+  color: dodgerblue;
+  font-weight: 700;
+  font-size: 20px;
+  user-select: none;
+}
+
+.header-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-logo {
+  user-select: none;
+  height: 50px;
+  width: 50px;
+  margin: auto 20px auto 20px;
+}
+
+.header-right-align {
+  margin: auto 35px auto auto;
+}

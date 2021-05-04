@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efdbd7dd-c1c6-4420-952f-fee2e4b0913b" name="Default Changelist" comment="" />
+    <list default="true" id="efdbd7dd-c1c6-4420-952f-fee2e4b0913b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/reddit-backend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1s4B7ryF21x7RAFBOcR4f5rBH4I" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -35,11 +37,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/reddit-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reddit-frontend/src/assets/images" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.13940725" />
     <property name="project.structure.side.proportion" value="0.12578619" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/reddit-frontend/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/reddit-frontend/src/assets/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/reddit-frontend/src/app/components" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
@@ -72,6 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1620121818371</updated>
       <workItem from="1620121820845" duration="1826000" />
+      <workItem from="1620123670664" duration="3094000" />
     </task>
     <servers />
   </component>
@@ -88,5 +100,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
