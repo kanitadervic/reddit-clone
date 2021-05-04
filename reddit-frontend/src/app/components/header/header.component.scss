@@ -3,7 +3,7 @@ header {
   border: #F8FAFB solid;
   background-color: #F8FAFB;
   border-radius: 1px;
-  //height: 60px;
+  height: 60px;
 }
 
 .header-text {
@@ -11,6 +11,7 @@ header {
   font-weight: 700;
   font-size: 20px;
   user-select: none;
+  margin: auto 0;
 }
 
 .header-row {
@@ -27,4 +28,42 @@ header {
 
 .header-right-align {
   margin: auto 35px auto auto;
+}
+
+.header-button {
+  width: 100px;
+  background-color: white;
+  margin-right: 15px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.login {
+  color: dodgerblue;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.sign-up {
+  background-color: dodgerblue;
+  color: white;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.login:hover {
+  transition: 0.3s ease-in-out;
+  background-color: dodgerblue;
+  color: white;
+  border: dodgerblue solid;
+}
+
+.sign-up:hover {
+  background-color: white;
+  color: dodgerblue;
+  border: white solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
 }
