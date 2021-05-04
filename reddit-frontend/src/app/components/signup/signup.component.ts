@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {AuthService} from "../../services/auth/auth.service";
+
 
 @Component({
   selector: 'app-signup',
@@ -7,10 +9,7 @@ import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validat
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  name = '';
-  lastName  = '';
   email = '';
-  phoneNumber = '';
   password = '';
   username = '';
 
@@ -37,7 +36,7 @@ export class SignupComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.myForm = this.formBuilder.group({
       password: ['', [Validators.required]]
     });
@@ -55,18 +54,14 @@ export class SignupComponent implements OnInit {
 
   sendData() {
     if (this.myForm.valid && this.emailFormControl.valid &&
-      this.nameFormControl.valid && this.lastNameFormControl.valid &&
-      this.usernameFormControl.valid && this.phoneNumberFormControl.valid) {
+      this.usernameFormControl.valid) {
       console.log('data is ok');
       const userCredentials = {
-        name: this.name,
-        lastName: this.lastName,
-        phone: this.phoneNumber,
         email: this.email,
         username: this.username,
         password: this.password
       };
-      // this.authService.register(userCredentials);
+      this.authService.signup(userCredentials);
     } else {
       console.log('data not ok');
     }
