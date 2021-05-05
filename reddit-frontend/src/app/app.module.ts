@@ -7,14 +7,17 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HeaderComponent } from './components/header/header.component';
 import {MaterialModule} from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {NgxWebstorageModule} from "ngx-webstorage";
+import {LoginComponent} from "./components/login/login.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,9 @@ import {HttpClientModule} from "@angular/common/http";
     MaterialModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
