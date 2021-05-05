@@ -6,7 +6,7 @@
   <div class="registration-container">
     <div class="registration-data-wrapper">
       <form class="form-row">
-        <mat-form-field class="mail inputs">
+        <mat-form-field appearance="standard" class="mail inputs">
           <mat-label>Email</mat-label>
           <input required [(ngModel)]="email" type="email" matInput [formControl]="emailFormControl" placeholder="Ex. user@mail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -18,7 +18,7 @@
         </mat-form-field>
       </form>
       <form class="form-row">
-        <mat-form-field class="username inputs">
+        <mat-form-field appearance="standard" class="username inputs">
           <mat-label>Username</mat-label>
           <input required [(ngModel)]="username" matInput [formControl]="usernameFormControl">
           <mat-error *ngIf="usernameFormControl.hasError('required')">
@@ -26,7 +26,7 @@
           </mat-error>
         </mat-form-field>
       </form>
-      <form class="form-row" [formGroup]="myForm">
+      <form class="form-row password-row" [formGroup]="myForm">
         <mat-form-field appearance="standard" class="password inputs">
           <mat-label>Password</mat-label>
           <input [(ngModel)]="password" matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>

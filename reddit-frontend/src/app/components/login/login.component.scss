@@ -5,6 +5,10 @@
 
 .wrapper {
   display: flex;
+  width: 400px;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 25px;
 }
 
 hr {
@@ -25,7 +29,7 @@ hr {
 }
 
 .login-data {
-  width: 50%;
+  width: 70%;
   margin: 0 auto
 }
 
@@ -46,6 +50,7 @@ input {
   text-align: center;
   width: 100%;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 button {
@@ -57,17 +62,17 @@ button {
   background-color: #FF4500;
   width: 250px;
   height: 50px;
-  border-radius: 30px;
   color: white;
   font-size: 18px;
   border: none;
   transition: 0.2s ease-in-out;
   cursor: pointer;
+  border-radius: 10px;
+
 }
 
 .button-wrapper > button:hover {
   transition: 0.2s ease-in-out;
-  background-color: #08aadf;
   color: #FF4500;
   border: 1px solid #FF4500;
   background-color: white;

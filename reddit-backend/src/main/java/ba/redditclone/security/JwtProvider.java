@@ -15,6 +15,9 @@ import java.security.cert.CertificateException;
 import java.time.Instant;
 import java.util.Date;
 
+import static io.jsonwebtoken.Jwts.parserBuilder;
+import static java.util.Date.from;
+
 @Service
 public class JwtProvider {
 
@@ -40,8 +43,9 @@ public class JwtProvider {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         return Jwts.builder()
                 .setSubject(principal.getUsername())
+                .setIssuedAt(from(Instant.now()))
                 .signWith(getPrivateKey())
-                .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
+                .setExpiration(from(Instant.now().plusMillis(jwtExpirationInMillis)))
                 .compact();
     }
 
@@ -54,7 +58,7 @@ public class JwtProvider {
     }
 
     public boolean validateToken(String jwt) {
-        Jwts.parserBuilder().setSigningKey(getPublicKey()).build().parseClaimsJws(jwt);
+        parserBuilder().setSigningKey(getPublicKey()).build().parseClaimsJws(jwt);
 
         return true;
     }
@@ -68,7 +72,7 @@ public class JwtProvider {
     }
 
     public String getUsernameFromJwt(String token) {
-        Claims claims = Jwts.parserBuilder()
+        Claims claims = parserBuilder()
                 .setSigningKey(getPublicKey())
                 .build()
                 .parseClaimsJws(token)
@@ -84,7 +88,7 @@ public class JwtProvider {
     public String generateTokenForUsername(String username) {
         return Jwts.builder()
                 .setSubject(username)
-                .setIssuedAt(Date.from(Instant.now()))
+                .setIssuedAt(from(Instant.now()))
                 .signWith(getPrivateKey())
                 .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
                 .compact();

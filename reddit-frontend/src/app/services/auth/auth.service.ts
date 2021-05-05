@@ -30,6 +30,7 @@ export class AuthService {
       this.localStorage.store('username', data.username);
       this.localStorage.store('refreshToken', data.refreshToken);
       this.localStorage.store('expiresAt', data.expiresAt);
+      this.router.navigateByUrl('/');
 
       return true;
     }));
