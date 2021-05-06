@@ -1,7 +1,7 @@
 <header>
   <div class="header-row">
-    <img class="header-logo" src="assets/images/reddit.png">
-    <p class="header-text">Reddit Clone</p>
+    <img [routerLink]="'/'" class="arrow-select header-logo" src="assets/images/reddit.png">
+    <p [routerLink]="'/'" class="arrow-select header-text">Reddit Clone</p>
     <div class="header-right-align">
       <button [routerLink]="'/login'" mat-button class="header-button login">Login</button>
       <button [routerLink]="'/signup'" mat-button class="header-button sign-up">Sign up</button>
