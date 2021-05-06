@@ -16,6 +16,8 @@ import { HomeComponent } from './components/home/home.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { PostComponent } from './components/post/post.component';
 import { VoteComponent } from './components/vote/vote.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SubredditSidebarComponent } from './components/subreddit-sidebar/subreddit-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { VoteComponent } from './components/vote/vote.component';
     LoginComponent,
     HomeComponent,
     PostComponent,
-    VoteComponent
+    VoteComponent,
+    SidebarComponent,
+    SubredditSidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
 .home-body {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .container {
@@ -11,6 +13,14 @@
 .row {
   height: 160px;
   margin-top: 100px;
+  width: 70%;
+  flex-direction: column;
+}
+
+.sidebar {
+  width: 30%;
+  text-align: center;
+  margin-right: 30px;
 }
 
 .row-post {

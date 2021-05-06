@@ -1,0 +1,14 @@
+<div>
+  <div>Browse subreddits</div>
+  <hr />
+  <span *ngFor="let subreddit of allSubreddits">
+    <span>
+      <div>/r/{{subreddit.name}}</div>
+      <a href="/view-subreddit/{{subreddit.name}}"></a>
+      <hr />
+    </span>
+  </span>
+  <div *ngIf="displayViewAll">
+    <a [routerLink]="'/viewAllSubreddits'">View all</a>
+  </div>
+</div>
