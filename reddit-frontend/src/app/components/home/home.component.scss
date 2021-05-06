@@ -1,0 +1,64 @@
+.home-body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  margin: 30px auto;
+  display: flex;
+}
+
+.row {
+  height: 160px;
+  margin-top: 100px;
+}
+
+.row-post {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  width: 80%;
+  height: 160px;
+  margin: 20px auto;
+  line-height: 30px;
+}
+
+.wrapper {
+  flex-direction: column;
+  width: 100%;
+}
+
+.post-name {
+  position: relative;
+}
+
+hr {
+  color: #cdcbcb;
+}
+
+.oneline {
+  display: flex;
+  flex-direction: row;
+}
+
+.subname {
+  color: dodgerblue;
+}
+
+.comment-icon {
+  font-size: 20px;
+}
+
+.vote-post {
+  margin: auto 20px auto 0;
+}
+
+.width-line {
+  width: 25%;
+  margin: 0 0 10px;
+}
+
+.arrow-select {
+  user-select: none;
+  cursor: pointer;
+}

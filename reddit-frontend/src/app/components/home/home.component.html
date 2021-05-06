@@ -1,7 +1,36 @@
 <div class="home-body">
-  <div class="container">
-    <div class="row">
-      <p>Home home home</p>
+  <div class="row">
+    <div class="row-post" *ngFor="let post of posts">
+      <div class="vote-post">
+        <div class="upvote">
+          <mat-icon class="arrow-select">arrow_upward</mat-icon>
+        </div>
+        <div class="downvote">
+          <mat-icon class="arrow-select">arrow_downward</mat-icon>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="oneline">
+          <div class="post-name subname arrow-select">{{post.subredditName}} </div>
+          <div class="post-name">&nbsp;posted by </div>
+          <div class="post-name subname arrow-select"> &nbsp;{{post.username}}</div>
+          <div class="post-name"> &nbsp;{{post.duration}}</div>
+        </div>
+        <hr class="width-line" />
+        <div class="oneline">
+          <div class="post-name subname arrow-select">{{post.postName}}</div>
+        </div>
+        <div class="oneline">
+          <div class="post-name">{{post.description}}</div>
+        </div>
+        <div class="oneline">
+          <div class="oneline">
+              <mat-icon class="arrow-select comment-icon">forum</mat-icon>
+              <div class="arrow-select">Comments ({{post.commentCount}})</div>
+          </div>
+        </div>
+        <hr />
+      </div>
     </div>
   </div>
 </div>

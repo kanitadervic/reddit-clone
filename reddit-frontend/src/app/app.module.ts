@@ -13,6 +13,7 @@ import {NgxWebstorageModule} from "ngx-webstorage";
 import {LoginComponent} from "./components/login/login.component";
 import {ToastrModule} from "ngx-toastr";
 import { HomeComponent } from './components/home/home.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
