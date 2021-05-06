@@ -25,4 +25,10 @@
       </form>
     </div>
   </div>
+  <div class="error-wrapper" *ngIf="isError">
+    <p>Login failed.</p>
+  </div>
+  <div class="success" *ngIf="this.registerSuccessMessage.length > 0">
+    <p>{{registerSuccessMessage}}</p>
+  </div>
 </div>

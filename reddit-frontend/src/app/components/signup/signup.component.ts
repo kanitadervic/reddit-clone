@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {AuthService} from "../../services/auth/auth.service";
+import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -36,7 +38,7 @@ export class SignupComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private toastr: ToastrService) {
     this.myForm = this.formBuilder.group({
       password: ['', [Validators.required]]
     });
@@ -61,7 +63,15 @@ export class SignupComponent implements OnInit {
         username: this.username,
         password: this.password
       };
-      this.authService.signup(userCredentials);
+      this.authService.signup(userCredentials).subscribe(() => {
+        this.router.navigate(['/login'], {
+          queryParams: {
+            registered: 'true'
+          }
+        })
+      }, () => {
+        this.toastr.error('Registration failed! Please try again.')
+      });
     } else {
       console.log('data not ok');
     }

@@ -1,6 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,19 @@ export class LoginComponent implements OnInit {
 
   credentials = {username: '', password: ''};
   hide = true;
+  registerSuccessMessage = '';
+  isError!: boolean;
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute, private toastr: ToastrService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.registered != undefined && params.registered === 'true') {
+        this.toastr.success('Signup successful!');
+        this.registerSuccessMessage = 'Please activate your account!';
+      }
+    })
+  }
 
   sendData() {
     const userCredentials = {
@@ -25,7 +35,13 @@ export class LoginComponent implements OnInit {
     console.log(userCredentials)
 
     this.authService.login(userCredentials).subscribe(data => {
-      console.log("successful");
+      if(data) {
+        this.isError = false;
+        this.router.navigateByUrl('/');
+        this.toastr.success('Login successful!')
+      } else {
+        this.isError = true;
+      }
     });
   }
 }
