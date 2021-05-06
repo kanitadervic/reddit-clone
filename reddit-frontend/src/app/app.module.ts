@@ -14,6 +14,8 @@ import {LoginComponent} from "./components/login/login.component";
 import {ToastrModule} from "ngx-toastr";
 import { HomeComponent } from './components/home/home.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { PostComponent } from './components/post/post.component';
+import { VoteComponent } from './components/vote/vote.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     SignupComponent,
     HeaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,

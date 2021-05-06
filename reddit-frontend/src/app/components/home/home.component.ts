@@ -9,12 +9,8 @@ import {PostService} from "../../services/post/post.service";
 })
 export class HomeComponent implements OnInit {
 
-  posts: Array<PostModel> = [];
 
-  constructor(private postService: PostService) {
-    this.postService.getAllPosts().subscribe(post => {
-      this.posts = post;
-    })
+  constructor() {
   }
 
   ngOnInit(): void {
