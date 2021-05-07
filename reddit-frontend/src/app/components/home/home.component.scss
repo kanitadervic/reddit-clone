@@ -7,13 +7,13 @@
 
 .container {
   margin: 30px auto;
-  display: flex;
 }
 
 .row {
+  display: flex;
   height: 160px;
   margin-top: 100px;
-  width: 70%;
+  width: 100%;
   flex-direction: column;
 }
 
