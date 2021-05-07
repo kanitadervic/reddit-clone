@@ -38,13 +38,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/api/auth/**", "/", "/api/post/**")
                     .permitAll()
-                    .antMatchers(HttpMethod.GET, "/api/subreddit/**", "/api/comment/**")
+                    .antMatchers( "/api/subreddit/**", "/api/comment/**")
                     .permitAll()
                     .anyRequest()
                     .authenticated();
 
-//            httpSecurity.addFilterBefore(jwtAuthenticationFilter,
-//                    UsernamePasswordAuthenticationFilter.class);
+            httpSecurity.addFilterBefore(jwtAuthenticationFilter,
+                    UsernamePasswordAuthenticationFilter.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

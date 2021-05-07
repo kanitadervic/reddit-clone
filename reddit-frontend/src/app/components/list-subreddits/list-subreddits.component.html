@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <hr />
+    <div class="subreddits">
+      <h2>List of Subreddits</h2>
+      <ul>
+        <li *ngFor="let subreddit of subreddits">
+          <a routerLink="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>
