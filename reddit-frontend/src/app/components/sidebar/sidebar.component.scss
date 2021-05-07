@@ -1,0 +1,45 @@
+.sidebar {
+  border: thin gray solid;
+  border-radius: 10px;
+}
+
+img {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.create-post {
+  color: dodgerblue;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.create-subreddit {
+  background-color: dodgerblue;
+  color: white;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.create-post:hover {
+  transition: 0.3s ease-in-out;
+  background-color: dodgerblue;
+  color: white;
+  border: dodgerblue solid;
+}
+
+.create-subreddit:hover {
+  background-color: white;
+  color: dodgerblue;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+button {
+  width: 80%;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,31 @@
+.subreddit-sidebar {
+  margin-top: 30px;
+  border: thin gray solid;
+  border-radius: 10px;
+}
+
+hr {
+  opacity: 10%;
+}
+
+.view-all {
+  text-decoration: none;
+  color: dodgerblue;
+  transition: 0.3s ease-in-out;
+}
+
+.wrapper {
+  margin: 10px 0;
+}
+
+.subreddit {
+  user-select: none;
+  cursor: pointer;
+  color: dodgerblue;
+  transition: 0.3s ease-in-out;
+}
+
+.subreddit:hover, .view-all:hover {
+  transition: 0.3s ease-in-out;
+  color: darkorange;
+}
