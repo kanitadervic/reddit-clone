@@ -1,0 +1,77 @@
+.wrapper {
+  width: 100%;
+}
+
+.inner-wrapper {
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.post-header {
+  text-align: center;
+}
+
+.divider {
+  opacity: 20%;
+  width: 80%;
+}
+
+.form-wrapper {
+  width: 60%;
+  margin: 15px auto;
+}
+
+.form-input {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.post-form > select, editor{
+  width: 103%;
+}
+
+.button-wrapper {
+  width: 45%;
+  margin: 35px auto auto auto;
+}
+
+.button-wrapper > button {
+  width: 40%;
+  text-transform: uppercase;
+}
+
+.button-wrapper > button:nth-child(1) {
+  margin-right: 10px;
+}
+
+.discard {
+  color: dodgerblue;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.create-post {
+  background-color: dodgerblue;
+  color: white;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.discard:hover {
+  transition: 0.3s ease-in-out;
+  background-color: dodgerblue;
+  color: white;
+  border: dodgerblue solid;
+}
+
+.create-post:hover {
+  background-color: white;
+  color: dodgerblue;
+  border: dodgerblue solid;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}

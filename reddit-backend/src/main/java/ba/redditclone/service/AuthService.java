@@ -41,7 +41,7 @@ public class AuthService {
     private final RefreshTokenService refreshTokenService;
 
     public void signup(RegisterRequest registerRequest) {
-        User user= new User();
+        User user = new User();
         user.setUsername(registerRequest.getUsername());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
@@ -102,6 +102,7 @@ public class AuthService {
 
     @Transactional(readOnly = true)
     public User getCurrentUser() {
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.
                 getContext().getAuthentication().getPrincipal();
         return userRepository.findByUsername(principal.getUsername())
