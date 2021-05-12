@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -34,11 +35,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity httpSecurity) {
         try {
-            httpSecurity.cors().and().csrf().disable()
+            httpSecurity.cors().and()
+                    .csrf().disable()
                     .authorizeRequests()
-                    .antMatchers("/api/auth/**", "/", "/api/post/**")
+                    .antMatchers("/api/auth/**")
                     .permitAll()
-                    .antMatchers( "/api/subreddit/**", "/api/comment/**")
+                    .antMatchers(HttpMethod.GET, "/api/subreddit")
+                    .permitAll()
+                    .antMatchers(HttpMethod.GET, "/api/post/")
+                    .permitAll()
+                    .antMatchers(HttpMethod.GET, "/api/comment/**")
                     .permitAll()
                     .anyRequest()
                     .authenticated();
