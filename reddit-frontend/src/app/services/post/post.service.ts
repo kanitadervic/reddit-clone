@@ -23,4 +23,12 @@ export class PostService {
     };
     return this.httpClient.post<CreatePost>('http://localhost:8080/api/post/create', createPost, httpOptions);
   }
+
+  getPost(postId: number): Observable<PostModel> {
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getJwtToken());
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this.httpClient.get<PostModel>('http://localhost:8080/api/post/' + postId, httpOptions);
+  }
 }

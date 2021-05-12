@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="vote-wrapper">
+      <app-vote [post]="post"></app-vote>
+    </div>
+    <div class="row">
+      <div class="info">
+        <div class="subreddit">/r/{{post.subredditName}} &nbsp;</div>
+        <div class="timestamp">{{post.duration}}</div>
+        <div class="username">&nbsp;by {{post.username}}</div>
+      </div>
+      <div class="hr-wrapper">
+        <hr />
+      </div>
+    </div>
+
+    <div class="post-row post-name">
+      {{post.postName}}
+    </div>
+    <div class="post-row post-description">
+      {{post.description}}
+    </div>
+    <div class="post-comment post-row">
+      <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+        <div class="form-group">
+          <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+        </div>
+        <div class="header-right-align">
+          <button mat-button class="comment">Comment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

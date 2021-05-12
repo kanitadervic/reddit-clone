@@ -17,7 +17,7 @@
     <div class="oneline">
       <div class="oneline">
         <mat-icon class="arrow-select comment-icon">forum</mat-icon>
-        <div class="arrow-select">Comments ({{post.commentCount}})</div>
+        <div (click)="goToPost(post.id)" class="arrow-select">Comments ({{post.commentCount}})</div>
       </div>
     </div>
     <hr />

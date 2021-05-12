@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PostService} from "../../services/post/post.service";
 import {PostModel} from "../../model/PostModel";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post',
@@ -9,15 +10,15 @@ import {PostModel} from "../../model/PostModel";
 })
 export class PostComponent implements OnInit {
 
-  posts: Array<PostModel> = [];
+  @Input() posts!: PostModel[];
 
-  constructor(private postService: PostService) {
-    this.postService.getAllPosts().subscribe(post => {
-      this.posts = post;
-    })
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
+  goToPost(id: number) {
+    this.router.navigateByUrl('/view-post/' + id)
+  }
 }
