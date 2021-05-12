@@ -11,15 +11,13 @@ import {LocalStorageService} from "ngx-webstorage";
 })
 export class AuthService {
 
-  userRole: any = undefined;
-
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
     username: this.getUserName()
   }
 
 
-  constructor(private httpClient: HttpClient, private router: Router, private localStorage: LocalStorageService) { }
+  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
 
   signup(userCredentials: any):Observable<any> {
     return this.httpClient.post('http://localhost:8080/api/auth/signup', userCredentials, { responseType: 'text' });
@@ -32,7 +30,6 @@ export class AuthService {
       this.localStorage.store('username', data.username);
       this.localStorage.store('refreshToken', data.refreshToken);
       this.localStorage.store('expiresAt', data.expiresAt);
-      this.router.navigateByUrl('/');
 
       return true;
     }));

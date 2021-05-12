@@ -3,6 +3,7 @@ package ba.redditclone.mapper;
 import ba.redditclone.http.request.SubredditRequest;
 import ba.redditclone.model.Post;
 import ba.redditclone.model.Subreddit;
+import ba.redditclone.model.User;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,5 +22,7 @@ public interface SubredditMapper {
 
     @InheritInverseConfiguration
     @Mapping(target = "posts", ignore = true)
-    Subreddit mapRequestToSubreddit(SubredditRequest subredditRequest);
+    @Mapping(target = "createdDate", expression = "java(java.time.Instant.now())")
+    @Mapping(target = "user", source = "user")
+    Subreddit mapRequestToSubreddit(SubredditRequest subredditRequest, User user);
 }
