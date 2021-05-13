@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {VoteModel} from "../../model/VoteModel";
 import {SubredditModel} from "../../model/SubredditModel";
 import {AuthService} from "../auth/auth.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class VoteService {
 
-  constructor(private httpClient: HttpClient, private authService: AuthService) { }
+  constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router) { }
 
   vote(vote: VoteModel): Observable<any> {
+    if(!this.authService.isLoggedIn()) {
+      this.router.navigateByUrl('/login');
+      return of(false);
+    }
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getJwtToken());
     const httpOptions = {
       headers: headers_object

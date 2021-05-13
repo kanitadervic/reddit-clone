@@ -8,16 +8,17 @@ import {CreateSubredditComponent} from "./components/create-subreddit/create-sub
 import {ListSubredditsComponent} from "./components/list-subreddits/list-subreddits.component";
 import {ViewPostComponent} from "./components/view-post/view-post.component";
 import {UserProfileComponent} from "./components/user-profile/user-profile.component";
+import {AuthGuard} from "./auth-guard.service";
 
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: '', component: HomeComponent},
-  {path: 'create-post', component: CreatePostComponent},
-  {path: 'create-subreddit', component: CreateSubredditComponent},
+  {path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuard]},
+  {path: 'create-subreddit', component: CreateSubredditComponent, canActivate: [AuthGuard]},
   {path: 'list-subreddits', component: ListSubredditsComponent},
   {path: 'view-post/:id', component: ViewPostComponent},
-  {path: 'user-profile/:username', component: UserProfileComponent}
+  {path: 'user-profile/:username', component: UserProfileComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
