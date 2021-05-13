@@ -31,4 +31,12 @@ export class PostService {
     };
     return this.httpClient.get<PostModel>('http://localhost:8080/api/post/' + postId, httpOptions);
   }
+
+  getAllPostsByUser(name: string): Observable<Array<PostModel>> {
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getJwtToken());
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this.httpClient.get<Array<PostModel>>('http://localhost:8080/api/post/by-user/' + name, httpOptions);
+  }
 }

@@ -7,6 +7,7 @@ import {CreatePostComponent} from "./components/create-post/create-post.componen
 import {CreateSubredditComponent} from "./components/create-subreddit/create-subreddit.component";
 import {ListSubredditsComponent} from "./components/list-subreddits/list-subreddits.component";
 import {ViewPostComponent} from "./components/view-post/view-post.component";
+import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'create-post', component: CreatePostComponent},
   {path: 'create-subreddit', component: CreateSubredditComponent},
   {path: 'list-subreddits', component: ListSubredditsComponent},
-  {path: 'view-post/:id', component: ViewPostComponent}
+  {path: 'view-post/:id', component: ViewPostComponent},
+  {path: 'user-profile/:username', component: UserProfileComponent}
 ];
 
 @NgModule({

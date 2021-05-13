@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="inner-wrapper">
+    <p class="welcome">Welcome <b>{{name}}</b>!</p>
+    <p>You have posted {{postLength}} time(s) and commented {{commentLength}} time(s).</p>
+    <p>Check your post and comment history below!</p>
+    <p class="posts">Your posts:</p>
+    <div>
+      <app-post [posts]="posts"></app-post>
+    </div>
+    <p class="comments">Your comments:</p>
+    <div *ngFor="let comment of comments">
+      <app-comment [comment]="comment"></app-comment>
+    </div>
+  </div>
+</div>

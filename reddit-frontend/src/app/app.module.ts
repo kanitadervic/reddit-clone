@@ -24,6 +24,7 @@ import { ListSubredditsComponent } from './components/list-subreddits/list-subre
 import {EditorModule} from "@tinymce/tinymce-angular";
 import { ViewPostComponent } from './components/view-post/view-post.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CommentComponent } from './components/comment/comment.component';
     CreatePostComponent,
     ListSubredditsComponent,
     ViewPostComponent,
-    CommentComponent
+    CommentComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
