@@ -1,11 +1,11 @@
 <div class="vote-post">
   <div class="upvote">
-    <mat-icon class="arrow-select">arrow_upward</mat-icon>
+    <mat-icon (click)="upvotePost()" class="arrow-select" [style.color]="post.upVote ? 'green' : ''">arrow_upward</mat-icon>
   </div>
   <div class="vote-count">
     {{post.voteCount}}
   </div>
   <div class="downvote">
-    <mat-icon class="arrow-select">arrow_downward</mat-icon>
+    <mat-icon (click)="downvotePost()" class="arrow-select" [style.color]="post.downVote ? 'red' : ''">arrow_downward</mat-icon>
   </div>
 </div>
