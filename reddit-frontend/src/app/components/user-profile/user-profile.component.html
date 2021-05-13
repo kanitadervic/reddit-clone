@@ -8,7 +8,7 @@
       <app-post [posts]="posts"></app-post>
     </div>
     <p class="comments">Your comments:</p>
-    <div *ngFor="let comment of comments">
+    <div class="comment-list" *ngFor="let comment of comments">
       <app-comment [comment]="comment"></app-comment>
     </div>
   </div>
