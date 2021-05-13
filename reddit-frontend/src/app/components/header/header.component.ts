@@ -10,10 +10,12 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
   isLoggedIn!: boolean;
   username!: string;
+  menuClicked!: boolean;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.menuClicked = false;
     this.isLoggedIn = this.authService.isLoggedIn();
     this.username = this.authService.getUserName();
   }
@@ -24,5 +26,9 @@ export class HeaderComponent implements OnInit {
 
   goToUserProfile() {
     this.router.navigateByUrl('/user-profile/' + this.username);
+  }
+
+  toggleMenu() {
+    this.menuClicked = !this.menuClicked;
   }
 }

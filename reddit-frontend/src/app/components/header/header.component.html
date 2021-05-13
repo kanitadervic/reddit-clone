@@ -3,8 +3,16 @@
     <img [routerLink]="'/'" class="arrow-select header-logo" src="assets/images/reddit.png">
     <p [routerLink]="'/'" class="arrow-select header-text">Reddit Clone</p>
     <div *ngIf="isLoggedIn" class="header-right-align">
-      <button (click)="goToUserProfile()" mat-button class="header-button login">Profile</button>
-      <button (click)="logout()" [routerLink]="'/signup'" mat-button class="header-button sign-up">Logout</button>
+      <div (click)="toggleMenu()" class="menu">
+        <div class="one-row">
+          <img src="assets/images/profilepic.png" class="profile-picture">
+          <p>{{username}}</p>
+        </div>
+        <div class="menu-view" *ngIf="menuClicked">
+          <button (click)="goToUserProfile()"  class="header-button view">Profile</button>
+          <button (click)="logout()" class="header-button view">Logout</button>
+        </div>
+      </div>
     </div>
     <div *ngIf="!isLoggedIn" class="header-right-align">
       <button [routerLink]="'/login'" mat-button class="header-button login">Login</button>

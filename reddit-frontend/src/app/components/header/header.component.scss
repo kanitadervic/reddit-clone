@@ -72,3 +72,37 @@ header {
   cursor: pointer;
   user-select: none;
 }
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+}
+
+.one-row {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+  cursor: pointer;
+}
+
+.one-row > p {
+  line-height: 50px;
+  margin-left: 10px;
+  color: darkorange;
+}
+
+.menu-view {
+  position: absolute;
+  background-color: #F8FAFB;
+}
+
+.view {
+  width: 100%;
+  border: 1px solid darkorange;
+  border-radius: 5px;
+  background-color: transparent;
+  height: 30px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 5px;
+}
