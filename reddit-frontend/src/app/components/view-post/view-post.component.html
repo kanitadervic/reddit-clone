@@ -23,7 +23,7 @@
     <div class="post-comment post-row">
       <form [formGroup]="commentForm" (ngSubmit)="postComment()">
         <div class="form-group">
-          <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+          <textarea class="form-control" [formControlName]="'text'"></textarea>
         </div>
         <div class="header-right-align">
           <button mat-button class="comment">Comment</button>

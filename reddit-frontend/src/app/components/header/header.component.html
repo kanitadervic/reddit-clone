@@ -1,7 +1,6 @@
 <header>
   <div class="header-row">
     <img [routerLink]="'/'" class="arrow-select header-logo" src="assets/images/reddit.png">
-    <p [routerLink]="'/'" class="arrow-select header-text">Reddit Clone</p>
     <div *ngIf="isLoggedIn" class="header-right-align">
       <div (click)="toggleMenu()" class="menu">
         <div class="one-row">
